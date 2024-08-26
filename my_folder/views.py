@@ -14,6 +14,7 @@ def create_folder(request, parent_id=None):
         return redirect('folder_list')
     return render(request, 'create_folder.html', {'parent_id': parent_id})
 
+
 def folder_list(request, folder_id=None):
     if folder_id:
         folder = Folder.objects.get(id=folder_id)
@@ -21,3 +22,4 @@ def folder_list(request, folder_id=None):
     else:
         subfolders = Folder.objects.filter(parent=None)
     return render(request, 'folder_list.html', {'subfolders': subfolders, 'parent_id': folder_id})
+

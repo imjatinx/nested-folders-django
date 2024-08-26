@@ -10,13 +10,18 @@
 <body>
     <ul>
         {% for folder in subfolders %}
-        <li>
-            <a href="{% url 'subfolder_list' folder.id %}">{{ folder.name }}</a>
-        </li>
+            <li>
+                <a href="{% url 'subfolder_list' folder.id %}">{{ folder.name }}</a>
+            </li>
         {% endfor %}
     </ul>
-
-    <a href="{% url 'create_folder' parent_id %}">Create New Folder</a>
+    
+    {% if parent_id %}
+        <a href="{% url 'create_folder_with_parent' parent_id=parent_id %}">Create New Folder</a>
+    {% else %}
+        <a href="{% url 'create_folder' %}">Create New Folder</a>
+    {% endif %}
+    
 
 </body>
 

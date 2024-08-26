@@ -3,17 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nested Folder System</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 80vh;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: relative;
+        }
+
+        .main{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .main-content{
+            padding: 20px;
+        }
+
+        .main-content ul{
+            list-style: none;
+        }
+
+        footer{
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            bottom: 15px;
+        }
+
+    </style>
 </head>
 <body>
-    Hello
-    <br>
-    <a href="">
-        Create new folder
-    </a>
-    <br>
-    <a href="">
-        List all folder
-    </a>
+    <div class="main">    
+        <h1>Welcome to nested folder system</h1>
+        <div class="main-content">
+            <ol>
+                <li>
+                    <a href='{% url "create_folder" %}'>
+                        Create new folder
+                    </a>
+                </li>
+                <li>
+                    <a href='{% url "folder_list" %}'>
+                        List all folder
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <footer>
+        <span>
+            Developed by <a href="https://github.com/imjatinx" target="_blank">imjatinx</a>
+        </span>
+    </footer>
 </body>
 </html>
